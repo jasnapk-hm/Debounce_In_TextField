@@ -11,6 +11,10 @@ Debouncing
 # Created a web app using Vite build tool
 
 AppName : Dev-tinder-app
-Created app using vite
-Installed tailwind css
-Installed daisyUi
+- Created app using vite
+- Installed tailwind css
+- Installed daisyUi
+- Created Seperate navbar
+- Installed react router dom
+- Created basic routing
+- Body component created
