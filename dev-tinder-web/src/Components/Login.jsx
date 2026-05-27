@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "./utils/constants";
+import { BASE_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("emilys");
   const [password, setPassword] = useState("emilyspass");
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleLogin = async () => {
     try {
       const result = await axios.post(
@@ -14,8 +17,10 @@ const Login = () => {
         { username, password },
         { withCredentials: true },
       );
-      dispatch(result)
       console.log("result,", result);
+
+      dispatch(addUser(result.data));
+      return navigate("/feed");
     } catch (e) {
       console.log("error", e);
     }

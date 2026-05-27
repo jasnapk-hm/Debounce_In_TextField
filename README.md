@@ -23,3 +23,7 @@ AppName : Dev-tinder-app
 - used Axios
 - Cloned Back end code for running api for Front end
 - Installed redux-toolkit,used ConfigureStore, Provider ,CreateSlice,Added reducer to store
+- Added redux dev tool extension to chrome
+- After login checking correct data added to store or not.
+- Navbar update with user profile image once user logged in.
+-
