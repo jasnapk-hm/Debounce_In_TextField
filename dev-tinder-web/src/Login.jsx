@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 const Login = () => {
   const [username, setUsername] = useState("emilys");
   const [password, setPassword] = useState("emilyspass");
-  const dispatch = useDispatch();
+  const dispatch=useDispatch()
   const handleLogin = async () => {
     try {
       const result = await axios.post(
@@ -14,7 +14,7 @@ const Login = () => {
         { username, password },
         { withCredentials: true },
       );
-      dispatch(result);
+      dispatch(result)
       console.log("result,", result);
     } catch (e) {
       console.log("error", e);
