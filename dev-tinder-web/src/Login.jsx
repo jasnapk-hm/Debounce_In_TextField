@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "./utils/constants";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("emilys");
+  const [password, setPassword] = useState("emilyspass");
+  const dispatch = useDispatch();
   const handleLogin = async () => {
     try {
-      const result = await axios.post(BASE_URL + "/login", email, password);
+      const result = await axios.post(
+        "https://dummyjson.com/auth" + "/login",
+        { username, password },
+        { withCredentials: true },
+      );
+      dispatch(result);
       console.log("result,", result);
     } catch (e) {
       console.log("error", e);
@@ -20,11 +27,11 @@ const Login = () => {
           <h2 class="card-title justify-center">Login</h2>
           <div>
             <fieldset className="fieldset">
-              <legend className="fieldset-legend text-sm">Email ID</legend>
+              <legend className="fieldset-legend text-sm">Username</legend>
               <input
                 type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="input"
               />
             </fieldset>

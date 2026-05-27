@@ -22,3 +22,4 @@ AppName : Dev-tinder-app
 - craeted login page
 - used Axios
 - Cloned Back end code for running api for Front end
+- Installed redux-toolkit,used ConfigureStore, Provider ,CreateSlice,Added reducer to store
