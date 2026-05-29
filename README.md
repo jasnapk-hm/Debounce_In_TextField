@@ -28,3 +28,4 @@ AppName : Dev-tinder-app
 - Navbar update with user profile image once user logged in.
 - Login functionality implemented based on accesstoken
 - Token not present redirect to login page
+- Logout created
