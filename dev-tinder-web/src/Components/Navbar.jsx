@@ -1,9 +1,24 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const user = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   console.log("user oin navbar", user);
+
+  const handleLogout = () => {
+    console.log("logout click");
+    try {
+      dispatch(removeUser());
+      return navigate("/login");
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div>
       <div className="navbar bg-base-200 shadow-sm px-4">
@@ -44,7 +59,9 @@ const Navbar = () => {
                   <a className="text-base">Settings</a>
                 </li>
                 <li>
-                  <a className="text-base">Logout</a>
+                  <a onClick={handleLogout} className="text-base">
+                    Logout
+                  </a>
                 </li>
               </ul>
             </div>

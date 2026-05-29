@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [username, setUsername] = useState("emilys");
   const [password, setPassword] = useState("emilyspass");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogin = async () => {
@@ -26,7 +27,8 @@ const Login = () => {
       dispatch(addUser(result.data));
       navigate("/feed");
     } catch (e) {
-      console.log("error", e);
+      console.log("error", e, e.response.data, e.message);
+      setError(e.response.data.message || "Something went wrong");
     }
   };
   return (
@@ -54,6 +56,7 @@ const Login = () => {
               />
             </fieldset>
           </div>
+          <p className="text-red-500">{error}</p>
           <div class="card-actions justify-center">
             <button class="btn btn-primary text-sm" onClick={handleLogin}>
               Login
