@@ -26,4 +26,5 @@ AppName : Dev-tinder-app
 - Added redux dev tool extension to chrome
 - After login checking correct data added to store or not.
 - Navbar update with user profile image once user logged in.
--
+- Login functionality implemented based on accesstoken
+- Token not present redirect to login page

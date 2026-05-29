@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const user = useSelector((store) => store.user);
   console.log("user oin navbar", user);
@@ -7,7 +8,10 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-base-200 shadow-sm px-4">
         <div className="flex-1">
-          <a className="btn btn-ghost text-4xl font-bold"> DevTinder</a>
+          <Link to="/" className="btn btn-ghost text-4xl font-bold">
+            {" "}
+            DevTinder
+          </Link>
         </div>
 
         {user && (
@@ -28,10 +32,13 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow text-base"
               >
                 <li>
-                  <a className="text-base font-medium justify-between">
+                  <Link
+                    to="/profile"
+                    className="text-base font-medium justify-between"
+                  >
                     Profile
                     <span className="badge">New</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a className="text-base">Settings</a>

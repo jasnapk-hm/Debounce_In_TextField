@@ -8,16 +8,31 @@ import Feed from "./Components/Feed";
 
 import { Provider } from "react-redux";
 import appStore from "./utils/AppStore";
-
+import ProtectedRoute from "./Components/ProtectedRoute";
 function App() {
   return (
     <Provider store={appStore}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Body />}>
-            <Route path="feed" element={<Feed />} />
             <Route path="login" element={<Login />} />
-            <Route path="profile" element={<Profile />} />
+            <Route
+              path="feed"
+              element={
+                <ProtectedRoute>
+                  <Feed />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>

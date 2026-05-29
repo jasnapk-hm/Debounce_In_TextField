@@ -17,10 +17,14 @@ const Login = () => {
         { username, password },
         { withCredentials: true },
       );
-      console.log("result,", result);
+      console.log("result", result.data);
 
+      // ✅ Store token
+      localStorage.setItem("accessToken", result.data.accessToken);
+
+      // ✅ Store user
       dispatch(addUser(result.data));
-      return navigate("/feed");
+      navigate("/feed");
     } catch (e) {
       console.log("error", e);
     }
